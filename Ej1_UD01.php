@@ -15,7 +15,6 @@ Puedes representar la serie como una constante, no hace falta que el programa le
 importa el orden en el que estén los números en las dos series que construyas. -->
 
 
-
 <?php
 
 
@@ -23,27 +22,20 @@ $serie = "1, 5, 8, 40, 100, -3, 2.5, 3000";
 
 $numbers = explode(", ",$serie);
 
-//var_dump($numbers);
+//var_dump($numbers);  control
 
+sort($numbers); // Ordeno de menor a mayor
 
-$numberLower = [];
-$numberBigger = [];
+$count = count($numbers);
 
-foreach ($numbers as $number) {
-    
-    if ($number < 8) {
-        $numberLower[] = $number;
-    }
+$array = ($count / 2); 
 
-    else {
-        $numberBigger[] = $number;
-    }
-}
+$numberLower = array_slice($numbers, 0, $array); //corto los arrays 
+$numberBigger = array_slice($numbers, $array);
 
-//var_dump($numberLower);
-//var_dump($numberBigger);
-
-
+/* var_dump($numberLower);  // control
+var_dump($numberBigger);
+ */
 echo "-------\nPequeños: ";
 echo implode(', ', $numberLower);
 
